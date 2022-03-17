@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package vfs;
+
+service NameService {
+
+  rpc ListDirectory(PathRequest) returns (stream ABObject) {}
+  rpc FindObject(PathRequest) returns (ABObject) {}
+
+}
+
+message PathRequest {
+  oneof path {
+    string name = 1;
+    int64 handle = 2;
+  }
+}
+
+message ABObject {
+  // General Database Properties
+  int32 flags = 1;
+  string name = 2;
+  int32 dbLevel = 3;
+  int64 handle = 4;
+  int64 parentHandle = 5;
+  int64 childCount = 6;
+  string mimeType = 7;
+  string serverName = 8;
+
+  // Path Properties
+  string dbPath = 9;
+  string fullDbPath = 10;
+  string checkOutPath = 11;
+  string localPath = 12;
+  string workingPath = 13;
+  string serverPath = 14;
+
+  // Version Control Properties
+  string lockedAt = 15;
+  string createdAt = 16;
+  string createdBy = 17;
+  string lockedBy = 18;
+  string lockedOn = 19;
+  string checkOutComment = 20;
+  string lowLevelLockedOn = 21;
+  string lowLevelLockedBy = 22;
+  string lowLevelLockedAt = 23;
+  string lowLevelLockComment = 24;
+  string checkInComment = 25;
+  string comment = 26;
+  string keywords = 27;
+  string author = 28;
+
+  // File Size and Checksum Properties
+  string SFSZ = 29;
+  string SCRC = 30;
+
+  // Time Stamps
+  string SCRT = 31;
+  string SMOT = 32;
+  string SCIT = 33;
+  string SIMT = 34;
+  string SCOT = 35;
+
+  // User Related Properties
+  string userFolder = 36;
+  string userHandle = 37;
+  string userSession = 38;
+  string userMachine = 39;
+  string userName = 40;
+
+  // Signoff Properties
+  string nxNSignOff_ItemStatus = 41;
+  string nxNSignOff_ItemDueDate = 42;
+  string nxNSignOff_ItemUser = 43;
+
+  // append
+  int64 changedAt = 44;
+  string changedBy = 45;
+  string parentPath = 46;
+  string nxN_VersionNumber = 47;
+  bool isDirectory = 48;
+  bool localOnly = 49;
+}

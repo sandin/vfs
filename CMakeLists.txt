@@ -62,12 +62,14 @@ set(PROJECT_HEADERS
     include/vfs/leveldbfilesystem.h
     include/vfs/clientfilesystem.h
     include/vfs/nameserver.h
+    include/vfs/rollingchecksum.h
 )
 set(PROJECT_SOURCES
     src/utils.cpp
     src/leveldbfilesystem.cpp
     src/clientfilesystem.cpp
     src/nameserver.cpp
+    src/rollingchecksum.cpp
 
     ${PROJECT_HEADERS}
     ${PROTO_SOURCES}
@@ -82,6 +84,7 @@ target_link_libraries(${PROJECT_NAME} leveldb::leveldb gRPC::grpc++ absl::string
 add_executable(${PROJECT_NAME}_test
     test/virtualfilesystemtest.cpp
     test/nameservertest.cpp
+    test/rollingchecksumtest.cpp
 )
 target_link_libraries(${PROJECT_NAME}_test ${PROJECT_NAME} gtest gtest_main)
 add_test(NAME ${PROJECT_NAME}_test COMMAND ${PROJECT_NAME}_test)

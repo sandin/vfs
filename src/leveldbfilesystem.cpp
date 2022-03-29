@@ -113,7 +113,7 @@ void LevelDbFileSystem::Backup(const std::string& filepath, bool compress) const
   rename(dest.c_str(), filepath.c_str());
 }
 
-bool LevelDbFileSystem::LoadBackup(const std::string& filepath) const {
+bool LevelDbFileSystem::LoadBackup(const std::string& filepath) {
   std::string dest = filepath + ".tmp";
   int64_t db_version = 0;
   decompress_backup_file(filepath.c_str(), dest.c_str(), &db_version);
@@ -155,6 +155,7 @@ bool LevelDbFileSystem::LoadBackup(const std::string& filepath) const {
 
   input.close();
   remove(dest.c_str());
+  version_ = db_version;
   return true;
 }
 

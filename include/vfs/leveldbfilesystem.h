@@ -44,7 +44,7 @@ class LevelDbFileSystem : public IVirtualFileSystem
 
   void Dump() const;
   void Backup(const std::string& filepath, bool compress = true) const;
-  bool LoadBackup(const std::string& filepath) const;
+  bool LoadBackup(const std::string& filepath);
   bool Clear() const;
 
  private:

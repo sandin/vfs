@@ -8,7 +8,7 @@
 
 #include "zlib.h"
 
-int decompress_backup_file(const char* source_file, const char* dest_file) {
+int decompress_backup_file(const char* source_file, const char* dest_file, int64_t* db_version) {
   FILE* source = fopen(source_file, "rb");
   fseek(source, 0, SEEK_END);
   long file_size = ftell(source);
@@ -29,6 +29,10 @@ int decompress_backup_file(const char* source_file, const char* dest_file) {
   uint8_t compressed;
   fread(&compressed, sizeof(uint8_t), 1, source);
   std::cout << "compressed: " << compressed << " " << std::endl;
+  (*db_version) = 0;
+  fread(db_version, sizeof(int64_t), 1, source);
+  std::cout << "db_version: " << db_version << " " << std::endl;
+
   std::string filename = dest_file;
 
   // decompress data and write then to dest file
@@ -98,7 +102,7 @@ int decompress_backup_file(const char* source_file, const char* dest_file) {
   return ret == Z_STREAM_END ? Z_OK : Z_DATA_ERROR;
 }
 
-int compress_backup_file(const char* source_file, const char* dest_file) {
+int compress_backup_file(const char* source_file, uint8_t file_version, int64_t db_version, const char* dest_file) {
   const int CHUNK = 16384;
   int ret, flush;
   unsigned have;
@@ -125,10 +129,10 @@ int compress_backup_file(const char* source_file, const char* dest_file) {
 
   FILE* dest = fopen(dest_file, "wb");
   fwrite("VFS", strlen("VFS") + 1, 1, dest);
-  uint8_t v = 0x01;
-  fwrite((void*)&v, 1, sizeof(uint8_t), dest);
-  v = 1;
-  fwrite((void*)&v, 1, sizeof(uint8_t), dest);
+  fwrite((void*)&file_version, 1, sizeof(uint8_t), dest);
+  uint8_t compressed = 1;
+  fwrite((void*)&compressed, 1, sizeof(uint8_t), dest);
+  fwrite((void*)&db_version, 1, sizeof(int64_t), dest);
   do {
     strm.avail_in = fread(in, 1, CHUNK, source);
     if (ferror(source)) {

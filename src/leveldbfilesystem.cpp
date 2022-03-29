@@ -25,6 +25,7 @@ using namespace vfs;
 
 const int64_t kRootHandle = 1;
 const int64_t kCacheSizeInMb = 100;
+const uint8_t kBackupFileVersion = 0x2;
 
 LevelDbFileSystem::LevelDbFileSystem(const std::string& dbPath)
     : dbPath_(dbPath), version_(0) {
@@ -84,8 +85,9 @@ void LevelDbFileSystem::Backup(const std::string& filepath, bool compress) const
 
   if (!compress) {
     output << "VFS";
-    output << (uint8_t)0x01;
+    output << (uint8_t)kBackupFileVersion;
     output << (uint8_t)compress;
+    output << (int64_t)version_;
   }
   leveldb::Iterator* it = db_->NewIterator(leveldb::ReadOptions());
   uint32_t key_size, value_size;
@@ -106,14 +108,15 @@ void LevelDbFileSystem::Backup(const std::string& filepath, bool compress) const
   }
 
   std::string dest = filepath + ".zip";
-  compress_backup_file(filepath.c_str(), dest.c_str());
+  compress_backup_file(filepath.c_str(), kBackupFileVersion, version_, dest.c_str());
   remove(filepath.c_str());
   rename(dest.c_str(), filepath.c_str());
 }
 
 void LevelDbFileSystem::LoadBackup(const std::string& filepath) const {
   std::string dest = filepath + ".tmp";
-  decompress_backup_file(filepath.c_str(), dest.c_str());
+  int64_t db_version = 0;
+  decompress_backup_file(filepath.c_str(), dest.c_str(), &db_version);
 
   std::ifstream input(dest.c_str(), std::ofstream::in | std::ofstream::binary);
   uint32_t key_size;
@@ -121,6 +124,12 @@ void LevelDbFileSystem::LoadBackup(const std::string& filepath) const {
   std::string key;
   std::string value;
   leveldb::WriteBatch batch;
+
+  std::string version_key(8, 0);
+  version_key.append("version");
+  std::string version_str = std::to_string(db_version); 
+  batch.Put(version_key, version_str);
+
   while (!input.eof()) {
     // read key
     input.read((char*)&key_size, sizeof(uint32_t));

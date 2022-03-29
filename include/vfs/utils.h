@@ -42,8 +42,8 @@ inline bool isDirectory(int32_t flags) {
          && !((flags & AB_FLAG_LINK_ITEM) == AB_FLAG_LINK_ITEM); // and not a link item
 }
 
-int compress_backup_file(const char* source_file, const char* dest_file);
-int decompress_backup_file(const char* source_file, const char* dest_file);
+int compress_backup_file(const char* source_file, uint8_t file_version, int64_t db_version, const char* dest_file);
+int decompress_backup_file(const char* source_file, const char* dest_file, int64_t* db_version);
 
 
 #endif // VFS_UTILS_H

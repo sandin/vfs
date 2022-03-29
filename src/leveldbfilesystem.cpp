@@ -413,6 +413,9 @@ int64_t LevelDbFileSystem::Version(bool forceRead) {
 bool LevelDbFileSystem::UpdateVersion(int64_t version) {
   std::string version_key(8, 0);
   version_key.append("version");
+  if (version == 0) {
+    version = ToUnixMillis(absl::Now());
+  }
   std::string version_str = std::to_string(version); 
   if (db_->Put(leveldb::WriteOptions(), version_key, version_str).ok()) {
     version_ = version;

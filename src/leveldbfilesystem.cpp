@@ -113,10 +113,14 @@ void LevelDbFileSystem::Backup(const std::string& filepath, bool compress) const
   rename(dest.c_str(), filepath.c_str());
 }
 
-void LevelDbFileSystem::LoadBackup(const std::string& filepath) const {
+bool LevelDbFileSystem::LoadBackup(const std::string& filepath) const {
   std::string dest = filepath + ".tmp";
   int64_t db_version = 0;
   decompress_backup_file(filepath.c_str(), dest.c_str(), &db_version);
+  if (db_version != kBackupFileVersion) {
+    std::cout << "Error: bad backup file version=" << db_version << ", cur version=" + kBackupFileVersion;
+    return false;
+  }
 
   std::ifstream input(dest.c_str(), std::ofstream::in | std::ofstream::binary);
   uint32_t key_size;
@@ -151,6 +155,7 @@ void LevelDbFileSystem::LoadBackup(const std::string& filepath) const {
 
   input.close();
   remove(dest.c_str());
+  return true;
 }
 
 bool LevelDbFileSystem::Clear() const {

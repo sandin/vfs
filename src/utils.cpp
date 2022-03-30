@@ -28,7 +28,7 @@ int decompress_backup_file(const char* source_file, const char* dest_file, uint8
   fread(&file_version, sizeof(uint8_t), 1, source);
   std::cout << "file_version: " << std::to_string(file_version) << " " << std::endl;
   if (file_version != expect_file_version) {
-    std::cout << "Error: bad backup file version=" << db_version << ", expect version=" + expect_file_version << std::endl;
+    std::cout << "Error: bad backup file version=" << std::to_string(file_version) << ", expect version=" << std::to_string(expect_file_version) << std::endl;
     return Z_ERRNO;
   }
 

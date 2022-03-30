@@ -8,7 +8,7 @@
 
 #include "zlib.h"
 
-int decompress_backup_file(const char* source_file, const char* dest_file, int64_t* db_version) {
+int decompress_backup_file(const char* source_file, const char* dest_file, uint8_t* file_version, int64_t* db_version) {
   FILE* source = fopen(source_file, "rb");
   fseek(source, 0, SEEK_END);
   long file_size = ftell(source);
@@ -23,9 +23,8 @@ int decompress_backup_file(const char* source_file, const char* dest_file, int64
     std::cout << "It's not a vfs backup file" << std::endl;
     return Z_DATA_ERROR;
   }
-  uint8_t version;
-  fread(&version, sizeof(uint8_t), 1, source);
-  std::cout << "version: " << version << " " << std::endl;
+  fread(file_version, sizeof(uint8_t), 1, source);
+  std::cout << "version: " << file_version << " " << std::endl;
   uint8_t compressed;
   fread(&compressed, sizeof(uint8_t), 1, source);
   std::cout << "compressed: " << compressed << " " << std::endl;

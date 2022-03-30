@@ -115,9 +115,10 @@ void LevelDbFileSystem::Backup(const std::string& filepath, bool compress) const
 
 bool LevelDbFileSystem::LoadBackup(const std::string& filepath) {
   std::string dest = filepath + ".tmp";
+  uint8_t file_version = 0;
   int64_t db_version = 0;
-  decompress_backup_file(filepath.c_str(), dest.c_str(), &db_version);
-  if (db_version != kBackupFileVersion) {
+  decompress_backup_file(filepath.c_str(), dest.c_str(), &file_version, &db_version);
+  if (file_version != kBackupFileVersion) {
     std::cout << "Error: bad backup file version=" << db_version << ", cur version=" + kBackupFileVersion;
     return false;
   }

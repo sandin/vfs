@@ -43,7 +43,7 @@ inline bool isDirectory(int32_t flags) {
 }
 
 int compress_backup_file(const char* source_file, uint8_t file_version, int64_t db_version, const char* dest_file);
-int decompress_backup_file(const char* source_file, const char* dest_file, int64_t* db_version);
+int decompress_backup_file(const char* source_file, const char* dest_file, uint8_t* file_version, int64_t* db_version);
 
 
 #endif // VFS_UTILS_H

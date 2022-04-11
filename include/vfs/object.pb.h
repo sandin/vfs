@@ -415,6 +415,7 @@ class ABObject final :
     kChangedByFieldNumber = 45,
     kParentPathFieldNumber = 46,
     kNxNVersionNumberFieldNumber = 47,
+    kColorFieldNumber = 50,
     kFlagsFieldNumber = 1,
     kDbLevelFieldNumber = 3,
     kHandleFieldNumber = 4,
@@ -998,6 +999,20 @@ class ABObject final :
   std::string* _internal_mutable_nxn_versionnumber();
   public:
 
+  // string color = 50;
+  void clear_color();
+  const std::string& color() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_color(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_color();
+  PROTOBUF_MUST_USE_RESULT std::string* release_color();
+  void set_allocated_color(std::string* color);
+  private:
+  const std::string& _internal_color() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_color(const std::string& value);
+  std::string* _internal_mutable_color();
+  public:
+
   // int32 flags = 1;
   void clear_flags();
   ::PROTOBUF_NAMESPACE_ID::int32 flags() const;
@@ -1118,6 +1133,7 @@ class ABObject final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr changedby_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr parentpath_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr nxn_versionnumber_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr color_;
   ::PROTOBUF_NAMESPACE_ID::int32 flags_;
   ::PROTOBUF_NAMESPACE_ID::int32 dblevel_;
   ::PROTOBUF_NAMESPACE_ID::int64 handle_;
@@ -3317,6 +3333,52 @@ inline void ABObject::_internal_set_localonly(bool value) {
 inline void ABObject::set_localonly(bool value) {
   _internal_set_localonly(value);
   // @@protoc_insertion_point(field_set:vfs.ABObject.localOnly)
+}
+
+// string color = 50;
+inline void ABObject::clear_color() {
+  color_.ClearToEmpty();
+}
+inline const std::string& ABObject::color() const {
+  // @@protoc_insertion_point(field_get:vfs.ABObject.color)
+  return _internal_color();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ABObject::set_color(ArgT0&& arg0, ArgT... args) {
+ 
+ color_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:vfs.ABObject.color)
+}
+inline std::string* ABObject::mutable_color() {
+  std::string* _s = _internal_mutable_color();
+  // @@protoc_insertion_point(field_mutable:vfs.ABObject.color)
+  return _s;
+}
+inline const std::string& ABObject::_internal_color() const {
+  return color_.Get();
+}
+inline void ABObject::_internal_set_color(const std::string& value) {
+  
+  color_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* ABObject::_internal_mutable_color() {
+  
+  return color_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* ABObject::release_color() {
+  // @@protoc_insertion_point(field_release:vfs.ABObject.color)
+  return color_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void ABObject::set_allocated_color(std::string* color) {
+  if (color != nullptr) {
+    
+  } else {
+    
+  }
+  color_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), color,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:vfs.ABObject.color)
 }
 
 #ifdef __GNUC__

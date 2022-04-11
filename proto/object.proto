@@ -81,4 +81,5 @@ message ABObject {
   string nxN_VersionNumber = 47;
   bool isDirectory = 48;
   bool localOnly = 49;
+  string color = 50;
 }

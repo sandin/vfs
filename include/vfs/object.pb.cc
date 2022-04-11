@@ -72,6 +72,7 @@ constexpr ABObject::ABObject(
   , changedby_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , parentpath_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , nxn_versionnumber_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , color_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , flags_(0)
   , dblevel_(0)
   , handle_(int64_t{0})
@@ -159,6 +160,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_object_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::vfs::ABObject, nxn_versionnumber_),
   PROTOBUF_FIELD_OFFSET(::vfs::ABObject, isdirectory_),
   PROTOBUF_FIELD_OFFSET(::vfs::ABObject, localonly_),
+  PROTOBUF_FIELD_OFFSET(::vfs::ABObject, color_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::vfs::PathRequest)},
@@ -172,7 +174,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_object_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\014object.proto\022\003vfs\"7\n\013PathRequest\022\016\n\004na"
-  "me\030\001 \001(\tH\000\022\020\n\006handle\030\002 \001(\003H\000B\006\n\004path\"\330\007\n"
+  "me\030\001 \001(\tH\000\022\020\n\006handle\030\002 \001(\003H\000B\006\n\004path\"\347\007\n"
   "\010ABObject\022\r\n\005flags\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\017"
   "\n\007dbLevel\030\003 \001(\005\022\016\n\006handle\030\004 \001(\003\022\024\n\014paren"
   "tHandle\030\005 \001(\003\022\022\n\nchildCount\030\006 \001(\003\022\020\n\010mim"
@@ -197,14 +199,15 @@ const char descriptor_table_protodef_object_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "Off_ItemUser\030+ \001(\t\022\021\n\tchangedAt\030, \001(\003\022\021\n"
   "\tchangedBy\030- \001(\t\022\022\n\nparentPath\030. \001(\t\022\031\n\021"
   "nxN_VersionNumber\030/ \001(\t\022\023\n\013isDirectory\0300"
-  " \001(\010\022\021\n\tlocalOnly\0301 \001(\0102t\n\013NameService\0224"
-  "\n\rListDirectory\022\020.vfs.PathRequest\032\r.vfs."
-  "ABObject\"\0000\001\022/\n\nFindObject\022\020.vfs.PathReq"
-  "uest\032\r.vfs.ABObject\"\000b\006proto3"
+  " \001(\010\022\021\n\tlocalOnly\0301 \001(\010\022\r\n\005color\0302 \001(\t2t"
+  "\n\013NameService\0224\n\rListDirectory\022\020.vfs.Pat"
+  "hRequest\032\r.vfs.ABObject\"\0000\001\022/\n\nFindObjec"
+  "t\022\020.vfs.PathRequest\032\r.vfs.ABObject\"\000b\006pr"
+  "oto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_object_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_object_2eproto = {
-  false, false, 1189, descriptor_table_protodef_object_2eproto, "object.proto", 
+  false, false, 1204, descriptor_table_protodef_object_2eproto, "object.proto", 
   &descriptor_table_object_2eproto_once, nullptr, 0, 2,
   schemas, file_default_instances, TableStruct_object_2eproto::offsets,
   file_level_metadata_object_2eproto, file_level_enum_descriptors_object_2eproto, file_level_service_descriptors_object_2eproto,
@@ -696,6 +699,11 @@ ABObject::ABObject(const ABObject& from)
     nxn_versionnumber_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_nxn_versionnumber(), 
       GetArenaForAllocation());
   }
+  color_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_color().empty()) {
+    color_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_color(), 
+      GetArenaForAllocation());
+  }
   ::memcpy(&flags_, &from.flags_,
     static_cast<size_t>(reinterpret_cast<char*>(&localonly_) -
     reinterpret_cast<char*>(&flags_)) + sizeof(localonly_));
@@ -744,6 +752,7 @@ nxnsignoff_itemuser_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmp
 changedby_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 parentpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 nxn_versionnumber_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+color_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&flags_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&localonly_) -
@@ -800,6 +809,7 @@ inline void ABObject::SharedDtor() {
   changedby_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   parentpath_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   nxn_versionnumber_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  color_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ABObject::ArenaDtor(void* object) {
@@ -859,6 +869,7 @@ void ABObject::Clear() {
   changedby_.ClearToEmpty();
   parentpath_.ClearToEmpty();
   nxn_versionnumber_.ClearToEmpty();
+  color_.ClearToEmpty();
   ::memset(&flags_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&localonly_) -
       reinterpret_cast<char*>(&flags_)) + sizeof(localonly_));
@@ -1341,6 +1352,16 @@ const char* ABObject::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       case 49:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
           localonly_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string color = 50;
+      case 50:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146)) {
+          auto str = _internal_mutable_color();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "vfs.ABObject.color"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1832,6 +1853,16 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(49, this->_internal_localonly(), target);
   }
 
+  // string color = 50;
+  if (!this->_internal_color().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_color().data(), static_cast<int>(this->_internal_color().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "vfs.ABObject.color");
+    target = stream->WriteStringMaybeAliased(
+        50, this->_internal_color(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2135,6 +2166,13 @@ size_t ABObject::ByteSizeLong() const {
         this->_internal_nxn_versionnumber());
   }
 
+  // string color = 50;
+  if (!this->_internal_color().empty()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_color());
+  }
+
   // int32 flags = 1;
   if (this->_internal_flags() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_flags());
@@ -2321,6 +2359,9 @@ void ABObject::MergeFrom(const ABObject& from) {
   }
   if (!from._internal_nxn_versionnumber().empty()) {
     _internal_set_nxn_versionnumber(from._internal_nxn_versionnumber());
+  }
+  if (!from._internal_color().empty()) {
+    _internal_set_color(from._internal_color());
   }
   if (from._internal_flags() != 0) {
     _internal_set_flags(from._internal_flags());
@@ -2569,6 +2610,11 @@ void ABObject::InternalSwap(ABObject* other) {
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &nxn_versionnumber_, lhs_arena,
       &other->nxn_versionnumber_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &color_, lhs_arena,
+      &other->color_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ABObject, localonly_)

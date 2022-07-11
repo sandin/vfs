@@ -56,11 +56,11 @@ message ABObject {
   string SCRC = 30;
 
   // Time Stamps
-  string SCRT = 31;
-  string SMOT = 32;
-  string SCIT = 33;
-  string SIMT = 34;
-  string SCOT = 35;
+  int64 SCRT = 31;
+  int64 SMOT = 32;
+  int64 SCIT = 33;
+  int64 SIMT = 34;
+  int64 SCOT = 35;
 
   // User Related Properties
   string userFolder = 36;

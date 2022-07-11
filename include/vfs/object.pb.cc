@@ -56,11 +56,6 @@ constexpr ABObject::ABObject(
   , author_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , sfsz_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , scrc_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , scrt_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , smot_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , scit_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , simt_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , scot_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , userfolder_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , userhandle_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , usersession_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -78,6 +73,11 @@ constexpr ABObject::ABObject(
   , handle_(int64_t{0})
   , parenthandle_(int64_t{0})
   , childcount_(int64_t{0})
+  , scrt_(int64_t{0})
+  , smot_(int64_t{0})
+  , scit_(int64_t{0})
+  , simt_(int64_t{0})
+  , scot_(int64_t{0})
   , changedat_(int64_t{0})
   , isdirectory_(false)
   , localonly_(false){}
@@ -190,8 +190,8 @@ const char descriptor_table_protodef_object_2eproto[] PROTOBUF_SECTION_VARIABLE(
   "Comment\030\030 \001(\t\022\026\n\016checkInComment\030\031 \001(\t\022\017\n"
   "\007comment\030\032 \001(\t\022\020\n\010keywords\030\033 \001(\t\022\016\n\006auth"
   "or\030\034 \001(\t\022\014\n\004SFSZ\030\035 \001(\t\022\014\n\004SCRC\030\036 \001(\t\022\014\n\004"
-  "SCRT\030\037 \001(\t\022\014\n\004SMOT\030  \001(\t\022\014\n\004SCIT\030! \001(\t\022\014"
-  "\n\004SIMT\030\" \001(\t\022\014\n\004SCOT\030# \001(\t\022\022\n\nuserFolder"
+  "SCRT\030\037 \001(\003\022\014\n\004SMOT\030  \001(\003\022\014\n\004SCIT\030! \001(\003\022\014"
+  "\n\004SIMT\030\" \001(\003\022\014\n\004SCOT\030# \001(\003\022\022\n\nuserFolder"
   "\030$ \001(\t\022\022\n\nuserHandle\030% \001(\t\022\023\n\013userSessio"
   "n\030& \001(\t\022\023\n\013userMachine\030\' \001(\t\022\020\n\010userName"
   "\030( \001(\t\022\035\n\025nxNSignOff_ItemStatus\030) \001(\t\022\036\n"
@@ -619,31 +619,6 @@ ABObject::ABObject(const ABObject& from)
     scrc_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_scrc(), 
       GetArenaForAllocation());
   }
-  scrt_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_scrt().empty()) {
-    scrt_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_scrt(), 
-      GetArenaForAllocation());
-  }
-  smot_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_smot().empty()) {
-    smot_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_smot(), 
-      GetArenaForAllocation());
-  }
-  scit_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_scit().empty()) {
-    scit_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_scit(), 
-      GetArenaForAllocation());
-  }
-  simt_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_simt().empty()) {
-    simt_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_simt(), 
-      GetArenaForAllocation());
-  }
-  scot_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_scot().empty()) {
-    scot_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_scot(), 
-      GetArenaForAllocation());
-  }
   userfolder_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_userfolder().empty()) {
     userfolder_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_userfolder(), 
@@ -736,11 +711,6 @@ keywords_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlr
 author_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 sfsz_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 scrc_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-scrt_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-smot_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-scit_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-simt_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-scot_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 userfolder_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 userhandle_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 usersession_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -793,11 +763,6 @@ inline void ABObject::SharedDtor() {
   author_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   sfsz_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   scrc_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  scrt_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  smot_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  scit_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  simt_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  scot_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   userfolder_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   userhandle_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   usersession_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -853,11 +818,6 @@ void ABObject::Clear() {
   author_.ClearToEmpty();
   sfsz_.ClearToEmpty();
   scrc_.ClearToEmpty();
-  scrt_.ClearToEmpty();
-  smot_.ClearToEmpty();
-  scit_.ClearToEmpty();
-  simt_.ClearToEmpty();
-  scot_.ClearToEmpty();
   userfolder_.ClearToEmpty();
   userhandle_.ClearToEmpty();
   usersession_.ClearToEmpty();
@@ -1172,52 +1132,42 @@ const char* ABObject::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
         } else
           goto handle_unusual;
         continue;
-      // string SCRT = 31;
+      // int64 SCRT = 31;
       case 31:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 250)) {
-          auto str = _internal_mutable_scrt();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "vfs.ABObject.SCRT"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 248)) {
+          scrt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // string SMOT = 32;
+      // int64 SMOT = 32;
       case 32:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 2)) {
-          auto str = _internal_mutable_smot();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "vfs.ABObject.SMOT"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 0)) {
+          smot_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // string SCIT = 33;
+      // int64 SCIT = 33;
       case 33:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_scit();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "vfs.ABObject.SCIT"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          scit_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // string SIMT = 34;
+      // int64 SIMT = 34;
       case 34:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_simt();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "vfs.ABObject.SIMT"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          simt_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // string SCOT = 35;
+      // int64 SCOT = 35;
       case 35:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_scot();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "vfs.ABObject.SCOT"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          scot_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1675,54 +1625,34 @@ failure:
         30, this->_internal_scrc(), target);
   }
 
-  // string SCRT = 31;
-  if (!this->_internal_scrt().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_scrt().data(), static_cast<int>(this->_internal_scrt().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "vfs.ABObject.SCRT");
-    target = stream->WriteStringMaybeAliased(
-        31, this->_internal_scrt(), target);
+  // int64 SCRT = 31;
+  if (this->_internal_scrt() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(31, this->_internal_scrt(), target);
   }
 
-  // string SMOT = 32;
-  if (!this->_internal_smot().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_smot().data(), static_cast<int>(this->_internal_smot().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "vfs.ABObject.SMOT");
-    target = stream->WriteStringMaybeAliased(
-        32, this->_internal_smot(), target);
+  // int64 SMOT = 32;
+  if (this->_internal_smot() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(32, this->_internal_smot(), target);
   }
 
-  // string SCIT = 33;
-  if (!this->_internal_scit().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_scit().data(), static_cast<int>(this->_internal_scit().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "vfs.ABObject.SCIT");
-    target = stream->WriteStringMaybeAliased(
-        33, this->_internal_scit(), target);
+  // int64 SCIT = 33;
+  if (this->_internal_scit() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(33, this->_internal_scit(), target);
   }
 
-  // string SIMT = 34;
-  if (!this->_internal_simt().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_simt().data(), static_cast<int>(this->_internal_simt().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "vfs.ABObject.SIMT");
-    target = stream->WriteStringMaybeAliased(
-        34, this->_internal_simt(), target);
+  // int64 SIMT = 34;
+  if (this->_internal_simt() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(34, this->_internal_simt(), target);
   }
 
-  // string SCOT = 35;
-  if (!this->_internal_scot().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_scot().data(), static_cast<int>(this->_internal_scot().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "vfs.ABObject.SCOT");
-    target = stream->WriteStringMaybeAliased(
-        35, this->_internal_scot(), target);
+  // int64 SCOT = 35;
+  if (this->_internal_scot() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(35, this->_internal_scot(), target);
   }
 
   // string userFolder = 36;
@@ -2054,41 +1984,6 @@ size_t ABObject::ByteSizeLong() const {
         this->_internal_scrc());
   }
 
-  // string SCRT = 31;
-  if (!this->_internal_scrt().empty()) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_scrt());
-  }
-
-  // string SMOT = 32;
-  if (!this->_internal_smot().empty()) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_smot());
-  }
-
-  // string SCIT = 33;
-  if (!this->_internal_scit().empty()) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_scit());
-  }
-
-  // string SIMT = 34;
-  if (!this->_internal_simt().empty()) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_simt());
-  }
-
-  // string SCOT = 35;
-  if (!this->_internal_scot().empty()) {
-    total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_scot());
-  }
-
   // string userFolder = 36;
   if (!this->_internal_userfolder().empty()) {
     total_size += 2 +
@@ -2196,6 +2091,41 @@ size_t ABObject::ByteSizeLong() const {
   // int64 childCount = 6;
   if (this->_internal_childcount() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_childcount());
+  }
+
+  // int64 SCRT = 31;
+  if (this->_internal_scrt() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_scrt());
+  }
+
+  // int64 SMOT = 32;
+  if (this->_internal_smot() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_smot());
+  }
+
+  // int64 SCIT = 33;
+  if (this->_internal_scit() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_scit());
+  }
+
+  // int64 SIMT = 34;
+  if (this->_internal_simt() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_simt());
+  }
+
+  // int64 SCOT = 35;
+  if (this->_internal_scot() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_scot());
   }
 
   // int64 changedAt = 44;
@@ -2312,21 +2242,6 @@ void ABObject::MergeFrom(const ABObject& from) {
   if (!from._internal_scrc().empty()) {
     _internal_set_scrc(from._internal_scrc());
   }
-  if (!from._internal_scrt().empty()) {
-    _internal_set_scrt(from._internal_scrt());
-  }
-  if (!from._internal_smot().empty()) {
-    _internal_set_smot(from._internal_smot());
-  }
-  if (!from._internal_scit().empty()) {
-    _internal_set_scit(from._internal_scit());
-  }
-  if (!from._internal_simt().empty()) {
-    _internal_set_simt(from._internal_simt());
-  }
-  if (!from._internal_scot().empty()) {
-    _internal_set_scot(from._internal_scot());
-  }
   if (!from._internal_userfolder().empty()) {
     _internal_set_userfolder(from._internal_userfolder());
   }
@@ -2377,6 +2292,21 @@ void ABObject::MergeFrom(const ABObject& from) {
   }
   if (from._internal_childcount() != 0) {
     _internal_set_childcount(from._internal_childcount());
+  }
+  if (from._internal_scrt() != 0) {
+    _internal_set_scrt(from._internal_scrt());
+  }
+  if (from._internal_smot() != 0) {
+    _internal_set_smot(from._internal_smot());
+  }
+  if (from._internal_scit() != 0) {
+    _internal_set_scit(from._internal_scit());
+  }
+  if (from._internal_simt() != 0) {
+    _internal_set_simt(from._internal_simt());
+  }
+  if (from._internal_scot() != 0) {
+    _internal_set_scot(from._internal_scot());
   }
   if (from._internal_changedat() != 0) {
     _internal_set_changedat(from._internal_changedat());
@@ -2530,31 +2460,6 @@ void ABObject::InternalSwap(ABObject* other) {
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &scrc_, lhs_arena,
       &other->scrc_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &scrt_, lhs_arena,
-      &other->scrt_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &smot_, lhs_arena,
-      &other->smot_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &scit_, lhs_arena,
-      &other->scit_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &simt_, lhs_arena,
-      &other->simt_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &scot_, lhs_arena,
-      &other->scot_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),

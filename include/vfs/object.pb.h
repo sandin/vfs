@@ -399,11 +399,6 @@ class ABObject final :
     kAuthorFieldNumber = 28,
     kSFSZFieldNumber = 29,
     kSCRCFieldNumber = 30,
-    kSCRTFieldNumber = 31,
-    kSMOTFieldNumber = 32,
-    kSCITFieldNumber = 33,
-    kSIMTFieldNumber = 34,
-    kSCOTFieldNumber = 35,
     kUserFolderFieldNumber = 36,
     kUserHandleFieldNumber = 37,
     kUserSessionFieldNumber = 38,
@@ -421,6 +416,11 @@ class ABObject final :
     kHandleFieldNumber = 4,
     kParentHandleFieldNumber = 5,
     kChildCountFieldNumber = 6,
+    kSCRTFieldNumber = 31,
+    kSMOTFieldNumber = 32,
+    kSCITFieldNumber = 33,
+    kSIMTFieldNumber = 34,
+    kSCOTFieldNumber = 35,
     kChangedAtFieldNumber = 44,
     kIsDirectoryFieldNumber = 48,
     kLocalOnlyFieldNumber = 49,
@@ -775,76 +775,6 @@ class ABObject final :
   std::string* _internal_mutable_scrc();
   public:
 
-  // string SCRT = 31;
-  void clear_scrt();
-  const std::string& scrt() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_scrt(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_scrt();
-  PROTOBUF_MUST_USE_RESULT std::string* release_scrt();
-  void set_allocated_scrt(std::string* scrt);
-  private:
-  const std::string& _internal_scrt() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_scrt(const std::string& value);
-  std::string* _internal_mutable_scrt();
-  public:
-
-  // string SMOT = 32;
-  void clear_smot();
-  const std::string& smot() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_smot(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_smot();
-  PROTOBUF_MUST_USE_RESULT std::string* release_smot();
-  void set_allocated_smot(std::string* smot);
-  private:
-  const std::string& _internal_smot() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_smot(const std::string& value);
-  std::string* _internal_mutable_smot();
-  public:
-
-  // string SCIT = 33;
-  void clear_scit();
-  const std::string& scit() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_scit(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_scit();
-  PROTOBUF_MUST_USE_RESULT std::string* release_scit();
-  void set_allocated_scit(std::string* scit);
-  private:
-  const std::string& _internal_scit() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_scit(const std::string& value);
-  std::string* _internal_mutable_scit();
-  public:
-
-  // string SIMT = 34;
-  void clear_simt();
-  const std::string& simt() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_simt(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_simt();
-  PROTOBUF_MUST_USE_RESULT std::string* release_simt();
-  void set_allocated_simt(std::string* simt);
-  private:
-  const std::string& _internal_simt() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_simt(const std::string& value);
-  std::string* _internal_mutable_simt();
-  public:
-
-  // string SCOT = 35;
-  void clear_scot();
-  const std::string& scot() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_scot(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_scot();
-  PROTOBUF_MUST_USE_RESULT std::string* release_scot();
-  void set_allocated_scot(std::string* scot);
-  private:
-  const std::string& _internal_scot() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_scot(const std::string& value);
-  std::string* _internal_mutable_scot();
-  public:
-
   // string userFolder = 36;
   void clear_userfolder();
   const std::string& userfolder() const;
@@ -1058,6 +988,51 @@ class ABObject final :
   void _internal_set_childcount(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
+  // int64 SCRT = 31;
+  void clear_scrt();
+  ::PROTOBUF_NAMESPACE_ID::int64 scrt() const;
+  void set_scrt(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_scrt() const;
+  void _internal_set_scrt(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 SMOT = 32;
+  void clear_smot();
+  ::PROTOBUF_NAMESPACE_ID::int64 smot() const;
+  void set_smot(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_smot() const;
+  void _internal_set_smot(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 SCIT = 33;
+  void clear_scit();
+  ::PROTOBUF_NAMESPACE_ID::int64 scit() const;
+  void set_scit(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_scit() const;
+  void _internal_set_scit(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 SIMT = 34;
+  void clear_simt();
+  ::PROTOBUF_NAMESPACE_ID::int64 simt() const;
+  void set_simt(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_simt() const;
+  void _internal_set_simt(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 SCOT = 35;
+  void clear_scot();
+  ::PROTOBUF_NAMESPACE_ID::int64 scot() const;
+  void set_scot(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_scot() const;
+  void _internal_set_scot(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // int64 changedAt = 44;
   void clear_changedat();
   ::PROTOBUF_NAMESPACE_ID::int64 changedat() const;
@@ -1117,11 +1092,6 @@ class ABObject final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr author_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sfsz_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scrc_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scrt_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr smot_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scit_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr simt_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr scot_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr userfolder_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr userhandle_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr usersession_;
@@ -1139,6 +1109,11 @@ class ABObject final :
   ::PROTOBUF_NAMESPACE_ID::int64 handle_;
   ::PROTOBUF_NAMESPACE_ID::int64 parenthandle_;
   ::PROTOBUF_NAMESPACE_ID::int64 childcount_;
+  ::PROTOBUF_NAMESPACE_ID::int64 scrt_;
+  ::PROTOBUF_NAMESPACE_ID::int64 smot_;
+  ::PROTOBUF_NAMESPACE_ID::int64 scit_;
+  ::PROTOBUF_NAMESPACE_ID::int64 simt_;
+  ::PROTOBUF_NAMESPACE_ID::int64 scot_;
   ::PROTOBUF_NAMESPACE_ID::int64 changedat_;
   bool isdirectory_;
   bool localonly_;
@@ -2539,234 +2514,104 @@ inline void ABObject::set_allocated_scrc(std::string* scrc) {
   // @@protoc_insertion_point(field_set_allocated:vfs.ABObject.SCRC)
 }
 
-// string SCRT = 31;
+// int64 SCRT = 31;
 inline void ABObject::clear_scrt() {
-  scrt_.ClearToEmpty();
+  scrt_ = int64_t{0};
 }
-inline const std::string& ABObject::scrt() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::_internal_scrt() const {
+  return scrt_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::scrt() const {
   // @@protoc_insertion_point(field_get:vfs.ABObject.SCRT)
   return _internal_scrt();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ABObject::set_scrt(ArgT0&& arg0, ArgT... args) {
- 
- scrt_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void ABObject::_internal_set_scrt(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  scrt_ = value;
+}
+inline void ABObject::set_scrt(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_scrt(value);
   // @@protoc_insertion_point(field_set:vfs.ABObject.SCRT)
 }
-inline std::string* ABObject::mutable_scrt() {
-  std::string* _s = _internal_mutable_scrt();
-  // @@protoc_insertion_point(field_mutable:vfs.ABObject.SCRT)
-  return _s;
-}
-inline const std::string& ABObject::_internal_scrt() const {
-  return scrt_.Get();
-}
-inline void ABObject::_internal_set_scrt(const std::string& value) {
-  
-  scrt_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* ABObject::_internal_mutable_scrt() {
-  
-  return scrt_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* ABObject::release_scrt() {
-  // @@protoc_insertion_point(field_release:vfs.ABObject.SCRT)
-  return scrt_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void ABObject::set_allocated_scrt(std::string* scrt) {
-  if (scrt != nullptr) {
-    
-  } else {
-    
-  }
-  scrt_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scrt,
-      GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:vfs.ABObject.SCRT)
-}
 
-// string SMOT = 32;
+// int64 SMOT = 32;
 inline void ABObject::clear_smot() {
-  smot_.ClearToEmpty();
+  smot_ = int64_t{0};
 }
-inline const std::string& ABObject::smot() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::_internal_smot() const {
+  return smot_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::smot() const {
   // @@protoc_insertion_point(field_get:vfs.ABObject.SMOT)
   return _internal_smot();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ABObject::set_smot(ArgT0&& arg0, ArgT... args) {
- 
- smot_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void ABObject::_internal_set_smot(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  smot_ = value;
+}
+inline void ABObject::set_smot(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_smot(value);
   // @@protoc_insertion_point(field_set:vfs.ABObject.SMOT)
 }
-inline std::string* ABObject::mutable_smot() {
-  std::string* _s = _internal_mutable_smot();
-  // @@protoc_insertion_point(field_mutable:vfs.ABObject.SMOT)
-  return _s;
-}
-inline const std::string& ABObject::_internal_smot() const {
-  return smot_.Get();
-}
-inline void ABObject::_internal_set_smot(const std::string& value) {
-  
-  smot_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* ABObject::_internal_mutable_smot() {
-  
-  return smot_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* ABObject::release_smot() {
-  // @@protoc_insertion_point(field_release:vfs.ABObject.SMOT)
-  return smot_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void ABObject::set_allocated_smot(std::string* smot) {
-  if (smot != nullptr) {
-    
-  } else {
-    
-  }
-  smot_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), smot,
-      GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:vfs.ABObject.SMOT)
-}
 
-// string SCIT = 33;
+// int64 SCIT = 33;
 inline void ABObject::clear_scit() {
-  scit_.ClearToEmpty();
+  scit_ = int64_t{0};
 }
-inline const std::string& ABObject::scit() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::_internal_scit() const {
+  return scit_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::scit() const {
   // @@protoc_insertion_point(field_get:vfs.ABObject.SCIT)
   return _internal_scit();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ABObject::set_scit(ArgT0&& arg0, ArgT... args) {
- 
- scit_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void ABObject::_internal_set_scit(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  scit_ = value;
+}
+inline void ABObject::set_scit(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_scit(value);
   // @@protoc_insertion_point(field_set:vfs.ABObject.SCIT)
 }
-inline std::string* ABObject::mutable_scit() {
-  std::string* _s = _internal_mutable_scit();
-  // @@protoc_insertion_point(field_mutable:vfs.ABObject.SCIT)
-  return _s;
-}
-inline const std::string& ABObject::_internal_scit() const {
-  return scit_.Get();
-}
-inline void ABObject::_internal_set_scit(const std::string& value) {
-  
-  scit_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* ABObject::_internal_mutable_scit() {
-  
-  return scit_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* ABObject::release_scit() {
-  // @@protoc_insertion_point(field_release:vfs.ABObject.SCIT)
-  return scit_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void ABObject::set_allocated_scit(std::string* scit) {
-  if (scit != nullptr) {
-    
-  } else {
-    
-  }
-  scit_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scit,
-      GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:vfs.ABObject.SCIT)
-}
 
-// string SIMT = 34;
+// int64 SIMT = 34;
 inline void ABObject::clear_simt() {
-  simt_.ClearToEmpty();
+  simt_ = int64_t{0};
 }
-inline const std::string& ABObject::simt() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::_internal_simt() const {
+  return simt_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::simt() const {
   // @@protoc_insertion_point(field_get:vfs.ABObject.SIMT)
   return _internal_simt();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ABObject::set_simt(ArgT0&& arg0, ArgT... args) {
- 
- simt_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void ABObject::_internal_set_simt(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  simt_ = value;
+}
+inline void ABObject::set_simt(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_simt(value);
   // @@protoc_insertion_point(field_set:vfs.ABObject.SIMT)
 }
-inline std::string* ABObject::mutable_simt() {
-  std::string* _s = _internal_mutable_simt();
-  // @@protoc_insertion_point(field_mutable:vfs.ABObject.SIMT)
-  return _s;
-}
-inline const std::string& ABObject::_internal_simt() const {
-  return simt_.Get();
-}
-inline void ABObject::_internal_set_simt(const std::string& value) {
-  
-  simt_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* ABObject::_internal_mutable_simt() {
-  
-  return simt_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* ABObject::release_simt() {
-  // @@protoc_insertion_point(field_release:vfs.ABObject.SIMT)
-  return simt_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void ABObject::set_allocated_simt(std::string* simt) {
-  if (simt != nullptr) {
-    
-  } else {
-    
-  }
-  simt_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), simt,
-      GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:vfs.ABObject.SIMT)
-}
 
-// string SCOT = 35;
+// int64 SCOT = 35;
 inline void ABObject::clear_scot() {
-  scot_.ClearToEmpty();
+  scot_ = int64_t{0};
 }
-inline const std::string& ABObject::scot() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::_internal_scot() const {
+  return scot_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 ABObject::scot() const {
   // @@protoc_insertion_point(field_get:vfs.ABObject.SCOT)
   return _internal_scot();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ABObject::set_scot(ArgT0&& arg0, ArgT... args) {
- 
- scot_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void ABObject::_internal_set_scot(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  scot_ = value;
+}
+inline void ABObject::set_scot(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_scot(value);
   // @@protoc_insertion_point(field_set:vfs.ABObject.SCOT)
-}
-inline std::string* ABObject::mutable_scot() {
-  std::string* _s = _internal_mutable_scot();
-  // @@protoc_insertion_point(field_mutable:vfs.ABObject.SCOT)
-  return _s;
-}
-inline const std::string& ABObject::_internal_scot() const {
-  return scot_.Get();
-}
-inline void ABObject::_internal_set_scot(const std::string& value) {
-  
-  scot_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* ABObject::_internal_mutable_scot() {
-  
-  return scot_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* ABObject::release_scot() {
-  // @@protoc_insertion_point(field_release:vfs.ABObject.SCOT)
-  return scot_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void ABObject::set_allocated_scot(std::string* scot) {
-  if (scot != nullptr) {
-    
-  } else {
-    
-  }
-  scot_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), scot,
-      GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:vfs.ABObject.SCOT)
 }
 
 // string userFolder = 36;
